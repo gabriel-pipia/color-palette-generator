@@ -1,0 +1,40 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+.container {
+  position: relative;
+  @include flex(row, center, space-between, 0);
+  height: 65px;
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include flex(row, center, space-between, var(--size-04rem));
+    button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--size-03rem);
+      width: 35px;
+      height: 35px;
+      min-height: 35px;
+      border-radius: var(--full-radius);
+      color: var(--color-black-default);
+      transition: var(--transition);
+      i {
+        font-size: var(--fs-medium);
+      }
+      span {
+        font-size: var(--fs-medium);
+        font-weight: var(--fw-semibold);
+      }
+    }
+    .button-generate-palette {
+      width: auto;
+      max-width: none;
+      padding: var(--size-02rem) var(--size-04rem);
+      border-radius: var(--small-radius);
+    }
+  }
+}

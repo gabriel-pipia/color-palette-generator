@@ -1,0 +1,23 @@
+<palette-header></palette-header>
+<palette-main [colors]="colors"></palette-main>
+<palette-footer
+  (generatePaletteEmit)="onGeneratePalette()"
+  (updatePalette)="onUpdatePalette($event)"
+  (quickViewActionEmit)="onOpenQuickView($event)"
+  [palettes]="palettes"
+  [curentPalette]="curentPalette"
+>
+</palette-footer>
+<palette-aside
+  [palettes]="palettes"
+  [activeAside]="activeAside"
+  [ngClass]="activeAside ? 'active' : ''"
+>
+</palette-aside>
+<palette-quick-view-popup
+  [ngClass]="activeQuickView ? 'active' : ''"
+  [activeQuickView]="activeQuickView"
+  (quickViewActionEmit)="onCloseQuickView()"
+  [colors]="quickViewColors"
+  [index]="quickViewIndex"
+></palette-quick-view-popup>

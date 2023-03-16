@@ -1,0 +1,58 @@
+@import "./assets/scss/Mixin";
+@import "./assets/scss/Variable";
+@import "./assets/scss/Reset";
+body {
+  display: grid;
+  grid-template-rows: 1fr;
+  background-color: var(--bg-color-light);
+}
+
+app-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark {
+  app-root {
+    palette-header,
+    palette-footer {
+      background: var(--color-transparent-06);
+    }
+    button {
+      &:hover {
+        background: var(--color-transparent-white-01);
+      }
+    }
+    palette-main {
+      .container {
+        .color-list {
+          .color-card {
+            &.white {
+              color: var(--color-black-default) !important;
+            }
+            &.black {
+              color: var(--color-white-default) !important;
+            }
+          }
+        }
+      }
+    }
+    palette-aside {
+      aside,
+      .header {
+        background: var(--color-transparent-08) !important;
+        button {
+          &:hover {
+            background: var(--color-transparent-white-02) !important;
+          }
+        }
+      }
+    }
+    palette-quick-view-popup {
+      .popup-container {
+        background: var(--color-transparent-08) !important;
+      }
+    }
+  }
+}

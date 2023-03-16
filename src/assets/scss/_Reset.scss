@@ -1,0 +1,127 @@
+@import "Mixin";
+@import "Variable";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar {
+  width: var(--size-03rem);
+  height: var(--size-03rem);
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: var(--small-radius);
+  background: var(--color-black-default);
+}
+
+html {
+  font-family: var(--ff-poppins);
+  user-select: none;
+}
+
+body {
+  min-height: var(--full-height-dvh);
+}
+
+:is(input, textarea, select):focus,
+:is(input, textarea, select) {
+  outline: none;
+}
+
+button,
+select {
+  text-transform: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+  outline: 0;
+  padding: var(--button-padding-small);
+  cursor: pointer;
+}
+
+textarea {
+  overflow: auto;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+:is(ol, ul) {
+  list-style: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+[disabled] {
+  opacity: var(--opacity-50) !important;
+  pointer-events: none !important;
+}
+
+.container {
+  position: relative;
+  width: var(--containr-width);
+  max-width: var(--containr-max-width);
+  margin: 0 auto;
+}
+
+button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 35px;
+  font-size: var(--fs-medium);
+  font-weight: var(--fw-semibold);
+  color: var(--color-black-default);
+  border-radius: var(--full-radius);
+  transition: var(--transition);
+  &:hover {
+    background: var(--color-transparent-01);
+  }
+}
+
+button.only-icon {
+  width: 35px;
+}

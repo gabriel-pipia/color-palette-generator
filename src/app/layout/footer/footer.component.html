@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="buttons">
+    <button (click)="onPrevPalette()" [disabled]="disabledPrevButton">
+      <i class="fa fa-arrow-rotate-left"></i>
+    </button>
+    <button (click)="onNextPalette()" [disabled]="disabledNextButton">
+      <i class="fa fa-arrow-rotate-right"></i>
+    </button>
+  </div>
+  <div class="buttons">
+    <button class="button-generate-palette" (click)="generatePalette()">
+      <i class="fa fa-arrow-rotate"></i>
+      <span>Generate</span>
+    </button>
+  </div>
+  <div class="buttons">
+    <button (click)="onOpenQuickView()">
+      <i class="fa fa-eye"></i>
+    </button>
+    <button (click)="openAside(true)">
+      <i class="fa fa-bars"></i>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,297 @@
+@import "./Variable";
+$breakPoints: (
+  "xs": 0,
+  "sm": 450px,
+  "md": 650px,
+  "lg": 950px,
+  "xl": 1200px,
+  "xxl": 1400px,
+  "xxxl": 1600px,
+);
+@mixin screen-xs {
+  @media screen and (min-width: map-get($breakPoints, "xs")) {
+    @content;
+  }
+}
+
+@mixin screen-sm {
+  @media screen and (min-width: map-get($breakPoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media screen and (min-width: map-get($breakPoints, "md")) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media screen and (min-width: map-get($breakPoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin screen-xl {
+  @media screen and (min-width: map-get($breakPoints, "xl")) {
+    @content;
+  }
+}
+
+@mixin screen-xxl {
+  @media screen and (min-width: map-get($breakPoints, "xxl")) {
+    @content;
+  }
+}
+
+@mixin screen-xxxl {
+  @media screen and (min-width: map-get($breakPoints, "xxxl")) {
+    @content;
+  }
+}
+
+@mixin breakPoints($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flex($direction: row, $items: start, $jastify: start, $gap: 0) {
+  display: flex;
+  align-items: $items;
+  justify-content: $jastify;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin grid($gap: 0) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin responseve-grid($column: 3, $row: 3, $min: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax($min, 1fr));
+  grid-template-row: repeat(3, minmax($min, 1fr));
+}
+
+@mixin fede-in(
+  $duration: 0.5s,
+  $timing-function: linear,
+  $fill-mode: forwards
+) {
+  animation: fede-in $duration $timing-function $fill-mode;
+}
+
+@mixin fede-out(
+  $duration: 0.5s,
+  $timing-function: linear,
+  $fill-mode: forwards
+) {
+  animation: fede-out $duration $timing-function $fill-mode;
+}
+
+@mixin scale-in(
+  $duration: 0.5s,
+  $timing-function: linear,
+  $fill-mode: forwards
+) {
+  animation: scale-in $duration $timing-function $fill-mode;
+}
+
+@mixin scale-out(
+  $duration: 0.5s,
+  $timing-function: linear,
+  $fill-mode: forwards
+) {
+  animation: scale-out $duration $timing-function $fill-mode;
+}
+
+@mixin animation(
+  $name: fede-in,
+  $timing-function: linear,
+  $duration: 0.5s,
+  $fill-mode: forwards
+) {
+  animation: $name $duration $timing-function $fill-mode;
+}
+
+@keyframes fede-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fede-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fede-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fede-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fede-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fede-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fede-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fede-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fede-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fede-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-o-keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-ms-keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-moz-keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scale-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-o-keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-ms-keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-moz-keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@-webkit-keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

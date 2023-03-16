@@ -1,0 +1,11 @@
+<article class="color-card {{ checkContrast(hexCode) }}" [ngStyle]="{ background: hexCode }">
+  <div class="color-code">{{ hexCode }}</div>
+  <div class="buttons">
+    <button class="button-quick_View" (click)="openQuickView()">
+      <i class="fas fa-eye"></i>
+    </button>
+    <button class="button-copy_hex" (click)="copyColor($event, hexCode)">
+      <i class="fas fa-copy"></i>
+    </button>
+  </div>
+</article>

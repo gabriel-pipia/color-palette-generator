@@ -1,0 +1,53 @@
+@import "../assets/scss/Mixin";
+@import "../assets/scss/Reset";
+@import "../assets/scss/Variable";
+palette-header,
+palette-footer {
+  position: sticky;
+  top: 0;
+  width: var(--full-width);
+  z-index: 1;
+  @include breakPoints(650px) {
+    position: fixed;
+    top: var(--size-1rem);
+    left: 50%;
+    transform: translateX(-50%);
+    backdrop-filter: var(--default-blur);
+    background: var(--color-transparent-white-06);
+    border-radius: var(--big-radius);
+    max-width: 450px;
+  }
+}
+
+palette-main {
+  position: relative;
+  flex: 1;
+  width: var(--full-width);
+}
+
+palette-footer {
+  top: auto;
+  bottom: 0;
+  @include breakPoints(650px) {
+    bottom: var(--size-1rem);
+  }
+}
+
+palette-aside,
+palette-quick-view-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  opacity: var(--opacity-0);
+  pointer-events: none;
+  transition: var(--transition);
+  &.active {
+    pointer-events: painted;
+    opacity: var(--opacity-100);
+  }
+}
+
+palette-quick-view-popup {
+  @include flex(row, center, center, 0);
+  z-index: 3;
+}

@@ -1,0 +1,21 @@
+<div class="aside-overlay" (click)="openAside(false)"></div>
+<aside [ngClass]="activeAside ? 'active' : ''">
+  <div class="container">
+    <div class="header">
+      <button (click)="openAside(false)">
+        <i class="fa fa-angle-left"></i>
+      </button>
+      <h3>Library</h3>
+      <div class="spacer"></div>
+    </div>
+    <div class="recently-color-list">
+      <palette-recent-color
+        *ngFor="let palette of palettes; let i = index"
+        [palette]="palette"
+        [index]="i"
+      ></palette-recent-color>
+    </div>
+  </div>
+</aside>
+
+<palette-dropdown-menu></palette-dropdown-menu>

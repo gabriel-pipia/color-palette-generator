@@ -1,0 +1,33 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+.color-palette {
+  position: relative;
+  @include flex(row, center, space-between, var(--size-05rem));
+  width: var(--full-width);
+  margin-bottom: var(--size-08rem);
+  .color-list {
+    width: var(--full-width);
+    @include flex(row, center, space-between, 0);
+    border-radius: var(--small-radius);
+    overflow: hidden;
+    cursor: pointer;
+    .color-item {
+      position: relative;
+      width: var(--full-width);
+      height: 40px;
+    }
+  }
+  .button-action-palette {
+    width: 30px;
+    border-radius: var(--small-radius);
+    &:hover {
+      background: var(--color-transparent-01);
+    }
+    i {
+      font-size: var(--fs-medium-xl);
+      color: var(--color-black-default);
+      pointer-events: none;
+    }
+  }
+}

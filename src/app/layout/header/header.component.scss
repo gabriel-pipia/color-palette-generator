@@ -1,0 +1,34 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+.container {
+  @include flex(row, center, space-between, 0);
+  height: 65px;
+  .logo {
+    @include flex(row, center, flex-start, var(--size-03rem));
+    img {
+      width: auto;
+      max-width: 120px;
+      height: auto;
+    }
+  }
+  button {
+    i {
+      @include scale-in(0.15s, linear, forwards);
+      &.fa-moon {
+        display: block;
+      }
+      &.fa-sun-bright {
+        display: none;
+      }
+    }
+    &.dark {
+      i.fa-sun-bright {
+        display: block;
+      }
+      i.fa-moon {
+        display: none;
+      }
+    }
+  }
+}

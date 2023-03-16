@@ -1,0 +1,21 @@
+<div
+  class="container {{ active ? 'active' : '' }}"
+  [ngClass]="position"
+  [ngStyle]="{ top: top, right: right }"
+>
+  <div class="overlay" (click)="active = !active"></div>
+  <ul>
+    <li (click)="onOpenPalette()">
+      <i class="fas fa-up-right-from-square"></i>
+      <span>Open palette</span>
+    </li>
+    <li (click)="onOpenQuickView()">
+      <i class="fas fa-eye"></i>
+      <span>Quick view</span>
+    </li>
+    <li (click)="onDeletePalette()">
+      <i class="fas fa-trash"></i>
+      <span>Delete</span>
+    </li>
+  </ul>
+</div>

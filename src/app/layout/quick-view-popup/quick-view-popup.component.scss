@@ -1,0 +1,175 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--color-overlay);
+  transition: var(--transition);
+}
+
+.popup-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: var(--full-width);
+  max-width: var(--full-width);
+  height: var(--full-height);
+  border-radius: 0;
+  box-shadow: none;
+  background: var(--color-transparent-white-08);
+  overflow: hidden;
+  transition: var(--transition);
+  opacity: 0;
+  transform: scale(0);
+  backdrop-filter: blur(1rem);
+  z-index: 2;
+  @include breakPoints(450px) {
+    width: 85%;
+    max-width: 350px;
+    border-radius: var(--big-radius);
+    box-shadow: var(--shadow-big);
+    height: fit-content;
+  }
+  &.active {
+    transform: scale(1);
+    opacity: 1;
+  }
+  .popup-header {
+    position: sticky;
+    top: 0;
+    @include flex(row, center, space-between, var(--size-08rem));
+    width: var(--full-width);
+    height: 65px;
+    max-height: 65px;
+    padding: 0 var(--size-08rem);
+    button {
+      min-width: 35px;
+    }
+    h3 {
+      font-size: var(--fs-medium);
+      font-weight: var(--fw-bold);
+      color: var(--color-black-default);
+    }
+    .spacer {
+      width: 35px;
+    }
+  }
+  .popup-color-viewer {
+    position: relative;
+    padding: var(--size-08rem);
+    width: var(--full-width);
+    transition: var(--transition);
+    flex: 1;
+    li {
+      position: relative;
+      padding: var(--size-04rem) var(--size-08rem);
+      transition: var(--transition);
+      border-radius: var(--small-radius);
+      margin-bottom: var(--size-04rem);
+      cursor: pointer;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .copy-text {
+        position: absolute;
+        right: var(--size-08rem);
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: var(--fs-small);
+        font-weight: var(--fw-medium);
+        color: var(--color-transparent-white-08);
+        padding: var(--size-03rem) var(--size-05rem);
+        transition: var(--transition);
+        opacity: 0;
+        pointer-events: none;
+      }
+      &:hover .copy-text {
+        opacity: 1;
+      }
+      .label {
+        font-size: var(--fs-small);
+        font-weight: var(--fw-semibold);
+        color: var(--color-transparent-white-08);
+        margin-bottom: var(--size-03rem);
+        pointer-events: none;
+      }
+      p {
+        font-size: var(--fs-medium);
+        font-weight: var(--fw-semibold);
+        color: var(--color-black-default);
+        pointer-events: none;
+      }
+    }
+    &.black {
+      li {
+        &:hover {
+          background: var(--color-transparent-white-02);
+        }
+        p {
+          color: var(--color-transparent-09);
+        }
+        .label,
+        .copy-text {
+          color: var(--color-transparent-06);
+        }
+      }
+    }
+    &.white {
+      li {
+        &:hover {
+          background: var(--color-transparent-02);
+        }
+        p {
+          color: var(--color-transparent-white-09);
+        }
+        .label,
+        .copy-text {
+          color: var(--color-transparent-white-06);
+        }
+      }
+    }
+  }
+  .spacer {
+    width: 35px;
+  }
+  .popup-footer {
+    position: relative;
+    padding: var(--size-08rem);
+    ul {
+      @include flex(row, center, space-between, 0);
+      overflow: hidden;
+      border-radius: var(--small-radius);
+      li {
+        position: relative;
+        width: var(--full-width);
+        height: 45px;
+        @include flex(row, center, center, 0);
+        cursor: pointer;
+        &::before {
+          position: absolute;
+          content: "";
+          width: 8px;
+          height: 8px;
+          background: var(--color-white-default);
+          border-radius: var(--big-radius);
+          transition: var(--transition);
+          opacity: 0;
+        }
+        &:hover::before {
+          opacity: 0.5;
+        }
+        &.active::before {
+          opacity: 1;
+        }
+        &.black::before {
+          background: var(--color-transparent-09);
+        }
+        &.white::before {
+          background: var(--color-transparent-white-09);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="overlay" (click)="closeQuickView()"></div>
+<div class="popup-container" [ngClass]="activeQuickView ? 'active' : ''">
+  <div class="popup-header">
+    <button class="button-close__popup" (click)="closeQuickView()">
+      <i class="fa fa-times"></i>
+    </button>
+    <h3>Quick view</h3>
+    <div class="spacer"></div>
+  </div>
+  <ul
+    class="popup-color-viewer {{ checkContrast(hex) }}"
+    [ngStyle]="{ background: selectedColor }"
+  >
+    <li class="color-item" (click)="copyColor($event, hex)">
+      <span class="label">HEX</span>
+      <p>{{ hex }}</p>
+      <span class="copy-text">Copy</span>
+    </li>
+    <li class="color-item" (click)="copyColor($event, rgb)">
+      <span class="label">RGBA</span>
+      <p>{{ rgb }}</p>
+      <span class="copy-text">Copy</span>
+    </li>
+    <li class="color-item" (click)="copyColor($event, hsl)">
+      <span class="label">HSL</span>
+      <p>{{ hsl }}</p>
+      <span class="copy-text">Copy</span>
+    </li>
+  </ul>
+  <div class="popup-footer">
+    <ul class="color-selection" color-selection-wrapper="">
+      <li
+        class="{{ checkContrast(color) }} {{
+          color == selectedColor ? 'active' : ''
+        }}"
+        *ngFor="let color of colors"
+        [ngStyle]="{ background: color }"
+        (click)="onChanges(color)"
+      ></li>
+    </ul>
+  </div>
+</div>

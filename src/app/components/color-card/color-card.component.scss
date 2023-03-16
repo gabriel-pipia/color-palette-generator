@@ -1,0 +1,82 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+article {
+  position: relative;
+  width: var(--full-width);
+  height: var(--full-height);
+  padding: var(--card-padding-small);
+  color: var(--color-black-default);
+  @include flex(row, center, space-between, var(--size-3rem));
+  @include fede-in(0.15s, ease-out, forwards);
+  @include breakPoints(650px) {
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .color-code {
+    font-size: var(--fs-small);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    color: inherit;
+    width: var(--full-width);
+    max-width: fit-content;
+    padding: var(--size-02rem) var(--size-04rem);
+    border-radius: var(--small-radius);
+    @include flex(row, center, space-between, 0);
+    @include breakPoints(650px) {
+      justify-content: center;
+      transform: rotate(-90deg);
+    }
+    cursor: pointer;
+    &:hover {
+      background: var(--color-transparent-01);
+    }
+  }
+  .buttons {
+    @include flex(row, center, space-between, var(--size-04rem));
+    @include breakPoints(650px) {
+      flex-direction: column;
+    }
+    button {
+      position: relative;
+      @include flex(row, center, center, 0);
+      width: 35px;
+      height: 35px;
+      font-size: var(--fs-medium);
+      font-weight: var(--fw-semibold);
+      color: inherit;
+      border-radius: var(--full-radius);
+      transition: var(--transition);
+    }
+  }
+  &.white {
+    color: var(--color-white-default);
+    .color-code {
+      &:hover {
+        background: var(--color-transparent-02);
+      }
+    }
+    .buttons {
+      button {
+        &:hover {
+          background: var(--color-transparent-02);
+        }
+      }
+    }
+  }
+  &.black {
+    color: var(--color-black-default);
+    .color-code {
+      &:hover {
+        background: var(--color-transparent-white-02);
+      }
+    }
+    .buttons {
+      button {
+        &:hover {
+          background: var(--color-transparent-white-02);
+        }
+      }
+    }
+  }
+}

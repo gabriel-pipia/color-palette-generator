@@ -1,0 +1,82 @@
+@import "../../../assets/scss/Mixin";
+@import "../../../assets/scss/Reset";
+@import "../../../assets/scss/Variable";
+.aside-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-transparent-07);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+aside {
+  position: absolute;
+  width: var(--full-width);
+  max-width: var(--full-width);
+  right: -360px;
+  top: 0;
+  bottom: 0;
+  backdrop-filter: var(--default-blur);
+  background: var(--color-transparent-white-08);
+  box-shadow: var(--shadow-big);
+  z-index: 1;
+  transition: var(--transition);
+  @include breakPoints(450px) {
+    width: 85%;
+    max-width: 350px;
+  }
+  &.active {
+    right: 0;
+  }
+  .container {
+    width: var(--full-width);
+    max-width: var(--full-width);
+    height: var(--full-height);
+    overflow: auto;
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--color-transparent-white-06);
+      backdrop-filter: var(--default-blur);
+      @include flex(row, center, space-between, 0);
+      gap: var(--size-05rem);
+      height: 65px;
+      max-height: 65px;
+      max-width: var(--full-width);
+      margin: 0;
+      padding: 0 var(--size-08rem);
+      box-shadow: var(--shadow-basic);
+      button {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        min-height: 35px;
+        font-size: var(--fs-medium);
+        font-weight: var(--fw-semibold);
+        color: var(--color-black-default);
+        border-radius: var(--full-radius);
+        transition: var(--transition);
+        &:hover {
+          background: var(--color-transparent-01);
+        }
+      }
+      h3 {
+        font-weight: var(--fw-bold);
+        font-size: var(--fs-medium);
+        color: var(--color-black-default);
+      }
+      .spacer {
+        width: 35px;
+      }
+    }
+    .recently-color-list {
+      position: relative;
+      padding: var(--size-08rem);
+      width: var(--full-width);
+    }
+  }
+}

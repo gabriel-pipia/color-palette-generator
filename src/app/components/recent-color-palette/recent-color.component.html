@@ -1,0 +1,12 @@
+<div class="color-palette">
+  <div class="color-list" (click)="openPalette()">
+    <div
+      class="color-item"
+      *ngFor="let color of colors"
+      [ngStyle]="{ background: color }"
+    ></div>
+  </div>
+  <button class="button-action-palette" (click)="openDropdown($event)">
+    <i class="fas fa-ellipsis-vertical"></i>
+  </button>
+</div>
